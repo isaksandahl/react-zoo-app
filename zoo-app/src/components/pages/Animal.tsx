@@ -40,8 +40,10 @@ export const Animal = () => {
       <div>
         <img src={animal.imageUrl} alt={animal.name} />
       </div>
-      <h2>{animal.name}</h2>
-      <p>{animal.latinName}</p>
+      <div>
+        <h2>{animal.name}</h2>
+        <p>{animal.latinName}</p>
+      </div>
       <div>
         <p>Född: </p>
         <span>{animal.yearOfBirth}</span>
