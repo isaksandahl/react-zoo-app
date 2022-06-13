@@ -1,0 +1,42 @@
+.layout-container {
+    .header-container {
+        height: 70px;
+        padding: 10px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        border-bottom: 1px solid grey;
+
+        div {
+            flex-grow: 1;
+
+            a {
+                text-decoration: none;
+                color: black;
+
+                span {
+                    font-size: 2em;
+                    font-weight: 700;
+                }
+            }
+        }
+
+        ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+
+            li {
+                text-transform: uppercase;
+                letter-spacing: 5px;
+                list-style: none;
+
+                a {
+                    text-decoration: none;
+                    color: black;
+                }
+            }
+        }
+    }
+}

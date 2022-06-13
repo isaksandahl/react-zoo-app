@@ -1,9 +1,15 @@
+import "../styles/Layout.scss";
 import { Link, Outlet } from "react-router-dom";
 
 export const Layout = () => {
   return (
     <div className="layout-container">
-      <header>
+      <header className="header-container">
+        <div>
+          <Link to="/">
+            <span>ReactZoo</span>
+          </Link>
+        </div>
         <nav>
           <ul>
             <li>
@@ -18,8 +24,9 @@ export const Layout = () => {
           </ul>
         </nav>
       </header>
-      <p>Layout works</p>
-      <Outlet></Outlet>
+      <div>
+        <Outlet></Outlet>
+      </div>
     </div>
   );
 };

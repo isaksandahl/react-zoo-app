@@ -10,6 +10,9 @@ interface IAnimalProps {
 export const PrintAnimals = (props: IAnimalProps) => {
   return (
     <div className="animal-container">
+      <div>
+        <h2>{props.animal.name}</h2>
+      </div>
       <Link to={"/animals/" + props.animal.id} key={props.animal.id}>
         <div className="image-container">
           <img
@@ -23,8 +26,10 @@ export const PrintAnimals = (props: IAnimalProps) => {
         </div>
       </Link>
       <div>
-        <h2>{props.animal.name}</h2>
         <p>{props.animal.shortDescription}</p>
+        <Link to={"/animals/" + props.animal.id} key={props.animal.id}>
+          <button>Läs mer!</button>
+        </Link>
       </div>
     </div>
   );
