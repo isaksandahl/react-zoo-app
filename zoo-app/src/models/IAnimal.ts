@@ -8,5 +8,18 @@ export interface IAnimal {
   longDescription: string;
   medicine: string;
   isFed: boolean;
-  lastFed(): void;
+  lastFed: string;
 }
+
+export const defaultValue: IAnimal = {
+  id: 0,
+  name: "",
+  shortDescription: "",
+  imageUrl: "",
+  latinName: "",
+  yearOfBirth: 0,
+  longDescription: "",
+  medicine: "",
+  isFed: false,
+  lastFed: "",
+};

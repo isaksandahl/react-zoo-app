@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { IAnimal } from "../../models/IAnimal";
+import { defaultValue, IAnimal } from "../../models/IAnimal";
 import { getList, save } from "../../services/LocalStorageService";
 
 interface IParams {
@@ -8,18 +8,7 @@ interface IParams {
 }
 
 export const Animal = () => {
-  const [animal, setAnimal] = useState<IAnimal>({
-    id: 0,
-    name: "",
-    shortDescription: "",
-    imageUrl: "",
-    latinName: "",
-    yearOfBirth: 0,
-    longDescription: "",
-    medicine: "",
-    isFed: false,
-    lastFed: () => {},
-  });
+  const [animal, setAnimal] = useState<IAnimal>(defaultValue);
   const params = useParams<Partial<IParams>>();
   let animalLS: IAnimal[] = getList<IAnimal>();
 
@@ -34,16 +23,18 @@ export const Animal = () => {
   }, []);
 
   const handleFeedAnimal = () => {
-    let fedAnimal = { ...animal };
-    if (fedAnimal.isFed === false) {
-      fedAnimal.isFed = true;
-      setAnimal(fedAnimal);
-      save(animal);
+    let fedAnimal = { ...animal, isFed: true, lastFed: new Date().toString() };
+    setAnimal(fedAnimal);
+
+    for (let i = 0; i < animalLS.length; i++) {
+      if (animalLS[i].id === fedAnimal.id) {
+        animalLS[i] = fedAnimal;
+        save(animalLS);
+      }
     }
   };
 
   console.log(animal);
-
   return (
     <div>
       <div>
