@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { IAnimal } from "../../models/IAnimal";
 import { getList, save } from "../../services/LocalStorageService";
+import { PrintAnimals } from "../PrintAnimal";
 
 export const Home = () => {
   const [animals, setAnimals] = useState<IAnimal[]>([]);
@@ -16,6 +17,11 @@ export const Home = () => {
       });
   });
   save(animals);
-  console.log(animals);
-  return <>Home Wroks!</>;
+  return (
+    <div>
+      {animals.map((animal) => {
+        return <PrintAnimals key={animal.id} animal={animal}></PrintAnimals>;
+      })}
+    </div>
+  );
 };
