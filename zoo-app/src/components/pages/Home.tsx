@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { IAnimal } from "../../models/IAnimal";
-import { getList, save } from "../../services/LocalStorageService";
+import { save } from "../../services/LocalStorageService";
 import { PrintAnimals } from "../PrintAnimal";
 
 export const Home = () => {
