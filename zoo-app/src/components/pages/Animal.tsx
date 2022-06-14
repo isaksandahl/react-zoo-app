@@ -36,31 +36,40 @@ export const Animal = () => {
 
   console.log(animal);
   return (
-    <div>
-      <div>
-        <img src={animal.imageUrl} alt={animal.name} />
+    <div className="single-animal-container">
+      <div className="single-animal-image-container">
+        <img
+          src={animal.imageUrl}
+          alt={animal.name}
+          onError={(e) => {
+            e.currentTarget.onerror = null;
+            e.currentTarget.src = "https://shop.peacefulmall.com/no-image.png";
+          }}
+        />
       </div>
-      <div>
+      <div className="single-animal-name-container">
         <h2>{animal.name}</h2>
         <p>{animal.latinName}</p>
       </div>
-      <div>
+      <div className="single-animal-birth">
         <p>Född: </p>
         <span>{animal.yearOfBirth}</span>
       </div>
-      <div>
-        <p>Information: </p>
-        <span>{animal.longDescription}</span>
+      <div className="single-animal-desc-container">
+        <details>
+          <summary>Information: </summary>
+          <p>{animal.longDescription}</p>
+        </details>
       </div>
-      <div>
+      <div className="single-animal-meds-container">
         <p>Medicin: </p>
         <span>{animal.medicine}</span>
       </div>
-      <div>
+      <div className="single-animal-btn-container">
         {animal.isFed ? (
-          <button disabled>Mata djuret!</button>
+          <button disabled>Mata djuret</button>
         ) : (
-          <button onClick={handleFeedAnimal}>Mata djuret!</button>
+          <button onClick={handleFeedAnimal}>Mata djuret</button>
         )}
       </div>
     </div>

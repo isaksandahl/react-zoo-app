@@ -19,12 +19,13 @@ export const PrintAnimals = (props: IAnimalProps) => {
           className="image-link"
         >
           <img
-            src={props.animal.imageUrl || ".././assests/image-not-found.jpg"}
+            src={props.animal.imageUrl}
             alt={props.animal.name}
-            // onError={(e: SyntheticEvent<HTMLImageElement>) => {
-            //   e.currentTarget.onerror = null;
-            //   e.currentTarget.src = "../assests/image-not-found.jpg";
-            // }}
+            onError={(e) => {
+              e.currentTarget.onerror = null;
+              e.currentTarget.src =
+                "https://shop.peacefulmall.com/no-image.png";
+            }}
           />
         </Link>
       </div>
