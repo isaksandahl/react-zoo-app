@@ -1,7 +1,6 @@
-import { SyntheticEvent } from "react";
+import "../styles/PrintAnimal.scss";
 import { Link } from "react-router-dom";
 import { IAnimal } from "../models/IAnimal";
-// import "../assests/image-not-found.jpg";
 
 interface IAnimalProps {
   animal: IAnimal;
@@ -10,11 +9,15 @@ interface IAnimalProps {
 export const PrintAnimals = (props: IAnimalProps) => {
   return (
     <div className="animal-container">
-      <div>
+      <div className="title-container">
         <h2>{props.animal.name}</h2>
       </div>
-      <Link to={"/animals/" + props.animal.id} key={props.animal.id}>
-        <div className="image-container">
+      <div className="image-container">
+        <Link
+          to={"/animals/" + props.animal.id}
+          key={props.animal.id}
+          className="image-link"
+        >
           <img
             src={props.animal.imageUrl}
             alt={props.animal.name}
@@ -23,12 +26,14 @@ export const PrintAnimals = (props: IAnimalProps) => {
             //   e.currentTarget.src = "../assests/image-not-found.jpg";
             // }}
           />
-        </div>
-      </Link>
-      <div>
+        </Link>
+      </div>
+      <div className="desc-container">
         <p>{props.animal.shortDescription}</p>
+      </div>
+      <div className="animal-btn-container">
         <Link to={"/animals/" + props.animal.id} key={props.animal.id}>
-          <button>Läs mer!</button>
+          <button>Läs mer</button>
         </Link>
       </div>
     </div>
