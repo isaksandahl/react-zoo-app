@@ -56,7 +56,13 @@ export const Animal = () => {
         <p>Medicin: </p>
         <span>{animal.medicine}</span>
       </div>
-      <button onClick={handleFeedAnimal}>Mata djuret!</button>
+      <div>
+        {animal.isFed ? (
+          <button disabled>Mata djuret!</button>
+        ) : (
+          <button onClick={handleFeedAnimal}>Mata djuret!</button>
+        )}
+      </div>
     </div>
   );
 };

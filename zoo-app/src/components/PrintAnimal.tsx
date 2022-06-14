@@ -19,7 +19,7 @@ export const PrintAnimals = (props: IAnimalProps) => {
           className="image-link"
         >
           <img
-            src={props.animal.imageUrl}
+            src={props.animal.imageUrl || ".././assests/image-not-found.jpg"}
             alt={props.animal.name}
             // onError={(e: SyntheticEvent<HTMLImageElement>) => {
             //   e.currentTarget.onerror = null;

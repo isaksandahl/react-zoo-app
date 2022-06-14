@@ -1,3 +1,10 @@
+import "../styles/NotFound.scss";
+
 export const NotFound = () => {
-  return <>This is not found......</>;
+  return (
+    <div className="notFound-container">
+      <h1>error 404</h1>
+      <p>Oooops! Sidan du försöker hitta finns tyvärr inte</p>
+    </div>
+  );
 };

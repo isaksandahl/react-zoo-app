@@ -9,14 +9,13 @@ export const Home = () => {
 
   useEffect(() => {
     if (animals.length !== 0) return;
-
     axios
       .get<IAnimal[]>("https://animals.azurewebsites.net/api/animals")
       .then((response) => {
         setAnimals(response.data);
+        save(response.data);
       });
   });
-  save(animals);
   return (
     <div>
       {animals.map((animal) => {
