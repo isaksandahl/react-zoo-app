@@ -1,6 +1,8 @@
+import "../../styles/Animal.scss";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { defaultValue, IAnimal } from "../../models/IAnimal";
+import { localTime } from "../../services/getLocalTimeService";
 import { getList, save } from "../../services/LocalStorageService";
 
 interface IParams {
@@ -23,7 +25,11 @@ export const Animal = () => {
   }, []);
 
   const handleFeedAnimal = () => {
-    let fedAnimal = { ...animal, isFed: true, lastFed: new Date().toString() };
+    let fedAnimal = {
+      ...animal,
+      isFed: true,
+      lastFed: localTime(),
+    };
     setAnimal(fedAnimal);
 
     for (let i = 0; i < animalLS.length; i++) {
@@ -47,29 +53,44 @@ export const Animal = () => {
           }}
         />
       </div>
-      <div className="single-animal-name-container">
-        <h2>{animal.name}</h2>
-        <p>{animal.latinName}</p>
+      <div className="single-animal-div">
+        <div>
+          <span>Namn:</span>
+          <h2>{animal.name}</h2>
+        </div>
+        <div>
+          <span>Latin: </span>
+          <p>{animal.latinName}</p>
+        </div>
       </div>
-      <div className="single-animal-birth">
-        <p>Född: </p>
-        <span>{animal.yearOfBirth}</span>
+      <div className="single-animal-div">
+        <div>
+          <span>Född: </span>
+          <p>{animal.yearOfBirth}</p>
+        </div>
+      </div>
+      <div className="single-animal-div">
+        <div>
+          <span>Medicin: </span>
+          <p>{animal.medicine}</p>
+        </div>
       </div>
       <div className="single-animal-desc-container">
         <details>
-          <summary>Information: </summary>
+          <summary>Mer Information</summary>
           <p>{animal.longDescription}</p>
         </details>
       </div>
-      <div className="single-animal-meds-container">
-        <p>Medicin: </p>
-        <span>{animal.medicine}</span>
-      </div>
       <div className="single-animal-btn-container">
         {animal.isFed ? (
-          <button disabled>Mata djuret</button>
+          <div>
+            <button disabled>Mata djuret</button>
+            <span>Senaste matad: {animal.lastFed}</span>
+          </div>
         ) : (
-          <button onClick={handleFeedAnimal}>Mata djuret</button>
+          <div>
+            <button onClick={handleFeedAnimal}>Mata djuret</button>
+          </div>
         )}
       </div>
     </div>

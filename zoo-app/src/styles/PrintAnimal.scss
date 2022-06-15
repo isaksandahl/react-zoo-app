@@ -4,6 +4,7 @@
     .title-container {
         width: 60%;
         margin: 0 auto;
+        margin-top: 10px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -29,13 +30,13 @@
     .desc-container {
         width: 65%;
         margin: 0 auto;
+        margin-bottom: 40px;
         padding: 30px;
         border: 1px solid lightgrey;
     }
 
     .animal-btn-container {
-        width: 85%;
-        margin: 30px 0;
+        width: 100%;
 
         a {
             display: flex;

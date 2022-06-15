@@ -31,11 +31,11 @@ export const PrintAnimals = (props: IAnimalProps) => {
       </div>
       <div className="desc-container">
         <p>{props.animal.shortDescription}</p>
-      </div>
-      <div className="animal-btn-container">
-        <Link to={"/animals/" + props.animal.id} key={props.animal.id}>
-          <button>Läs mer</button>
-        </Link>
+        <div className="animal-btn-container">
+          <Link to={"/animals/" + props.animal.id} key={props.animal.id}>
+            <button>Läs mer</button>
+          </Link>
+        </div>
       </div>
     </div>
   );
