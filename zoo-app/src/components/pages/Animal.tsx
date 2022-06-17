@@ -86,7 +86,7 @@ export const Animal = () => {
         {animal.isFed ? (
           <div>
             <button disabled>Mata djuret</button>
-            <span>Senaste matad: {animal.lastFed}</span>
+            <span>Blev matad: {animal.lastFed}</span>
           </div>
         ) : (
           <div>
