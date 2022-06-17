@@ -49,7 +49,8 @@ export const Animal = () => {
           alt={animal.name}
           onError={(e) => {
             e.currentTarget.onerror = null;
-            e.currentTarget.src = "https://shop.peacefulmall.com/no-image.png";
+            e.currentTarget.src =
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsxeBa1Yv3CMw17GkzmcayHcu_7-wYHjCdv0f3SZUobD_1CMpBT0FzmyuDoX90t389ASM&usqp=CAU";
           }}
         />
       </div>
