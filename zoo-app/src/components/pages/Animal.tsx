@@ -40,7 +40,6 @@ export const Animal = () => {
     }
   };
 
-  console.log(animal);
   return (
     <div className="single-animal-container">
       <div className="single-animal-image-container">
